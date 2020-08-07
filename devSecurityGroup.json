@@ -5,7 +5,7 @@
             "Type": "AWS::EC2::SecurityGroup",
             "Properties": {
                 "GroupDescription": "dev Web server SecurityGroup",
-                "GroupName": "dev-web",
+                "GroupName": "devweb",
                 "VpcId": "vpc-a9d0fdd3",
                 "SecurityGroupIngress": [
                     {
@@ -27,14 +27,14 @@
             "Type": "AWS::EC2::SecurityGroup",
             "Properties": {
                 "GroupDescription": "dev ssh SecurityGroup",
-                "GroupName": "dev-ssh",
+                "GroupName": "devssh",
                 "VpcId": "vpc-a9d0fdd3",
                 "SecurityGroupIngress": [
                     {
                         "IpProtocol": "tcp",
                         "FromPort": 22,
                         "ToPort": 22,
-                        "CidrIp": "0.0.0.0/0"
+                        "CidrIp": "10.0.0.5/32"
                     }
                 ],
                 "Tags": [
@@ -49,7 +49,7 @@
             "Type": "AWS::EC2::SecurityGroup",
             "Properties": {
                 "GroupDescription": "Database server",
-                "GroupName": "database",
+                "GroupName": "devdatabase",
                 "VpcId": "vpc-a9d0fdd3",
                 "SecurityGroupIngress": [
                     {
