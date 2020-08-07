@@ -13,7 +13,13 @@
                         "FromPort": 80,
                         "ToPort": 80,
                         "CidrIp": "0.0.0.0/0"
-                    }
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": 443,
+                        "ToPort": 443,
+                        "CidrIp": "0.0.0.0/0"
+                    }			
                 ],
                 "Tags": [
                     {
@@ -48,7 +54,7 @@
         "DatabaseSecurityGroup": {
             "Type": "AWS::EC2::SecurityGroup",
             "Properties": {
-                "GroupDescription": "Database server",
+                "GroupDescription": "dev MySQL database server SecurityGroup",
                 "GroupName": "devdatabase",
                 "VpcId": "vpc-a9d0fdd3",
                 "SecurityGroupIngress": [
