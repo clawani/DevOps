@@ -4,8 +4,8 @@
         "WebSecurityGroup": {
             "Type": "AWS::EC2::SecurityGroup",
             "Properties": {
-                "GroupDescription": "Web server",
-                "GroupName": "web",
+                "GroupDescription": "dev Web server SecurityGroup",
+                "GroupName": "dev-web",
                 "VpcId": "vpc-a9d0fdd3",
                 "SecurityGroupIngress": [
                     {
@@ -14,9 +14,37 @@
                         "ToPort": 80,
                         "CidrIp": "0.0.0.0/0"
                     }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "devhttp"
+                    }
                 ]
             }
         },
+        "SSHSecurityGroup": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "dev ssh SecurityGroup",
+                "GroupName": "dev-ssh",
+                "VpcId": "vpc-a9d0fdd3",
+                "SecurityGroupIngress": [
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": 22,
+                        "ToPort": 22,
+                        "CidrIp": "0.0.0.0/0"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "devssh"
+                    }
+                ]
+            }
+        },        
         "DatabaseSecurityGroup": {
             "Type": "AWS::EC2::SecurityGroup",
             "Properties": {
@@ -31,6 +59,12 @@
                         "SourceSecurityGroupId": {
                             "Ref": "WebSecurityGroup"
                         }
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "devdatabase"
                     }
                 ]
             }
