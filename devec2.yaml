@@ -18,6 +18,7 @@ Resources:
           echo "#granting user admin root privileges" >> /etc/sudoers
           echo "admin  ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
           sed -i "s/.*PasswordAuthentication.*/PasswordAuthentication yes/g" /etc/ssh/sshd_config
+          sed -i "s/ssh_pwauth:   0/ssh_pwauth:   1/g" /etc/cloud/cloud.cfg
           systemctl restart sshd
       Tags:
         - Key: Name
