@@ -2,25 +2,26 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: Create EC2 instance
 Resources:              
   EC2Instance:
-    Type: 'AWS::EC2::Instance'
+    Type: AWS::EC2::Instance
     Properties:
       InstanceType: t2.micro
       SecurityGroupIds:
-        - sg-d0d5baaa
-      ImageId: 'ami-00dc79254d0461090'       
+        - sg-0bf15cf1371a8a87e
+      ImageId: ami-098f16afa9edf40be
+      SubnetId: subnet-f19c8d96
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
           yum update -y
           useradd admin
-          echo "P@ssW0rd" | passwd admin --stdin
+          echo "RedHat@1" | passwd admin --stdin
           echo "#granting user admin root privileges" >> /etc/sudoers
           echo "admin  ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
           sed -i "s/.*PasswordAuthentication.*/PasswordAuthentication yes/g" /etc/ssh/sshd_config
-          service sshd restart
+          systemctl restart sshd
       Tags:
         - Key: Name
-          Value: 'Test-EC2'           
+          Value: 'dev-EC2'           
 Outputs:
   InstanceId:
     Description: InstanceId of the newly created EC2 instance
