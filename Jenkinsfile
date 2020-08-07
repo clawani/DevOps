@@ -1,4 +1,3 @@
-def myVariable = "foo"
 pipeline {
     agent any
 
@@ -12,7 +11,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh "aws cloudformation create-stack --stack-name jenkins-ec2-cft-${myVariable}  --template-body file://devSecurityGroup.json --region 'us-east-1'"
+                sh "aws cloudformation create-stack --stack-name jenkins-ec2-cft-${BUILD_NUMBER}  --template-body file://devSecurityGroup.json --region 'us-east-1'"
             }
         }
     }
