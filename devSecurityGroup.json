@@ -67,26 +67,26 @@
                         "Value": "devdatabase"
                     }
                 ]
-            },
-            "Outputs": {
-                "DatabaseSecurityGroup": {
-                    "Description": "A reference to the security group for dev database",
-                    "Value": {
-                        "Ref": "DatabaseSecurityGroup"
-                    }
-                },
-                "WebSecurityGroup": {
-                    "Description": "A reference to the security group for dev web server",
-                    "Value": {
-                        "Ref": "WebSecurityGroup"
-                    }
-                },
-                "SSHSecurityGroup": {
-                    "Description": "A reference to the security group for dev web server",
-                    "Value": {
-                        "Ref": "SSHSecurityGroup"
-                    }
-                }
+            }
+        }
+	},
+    "Outputs": {
+        "DatabaseSecurityGroup": {
+            "Description": "A reference to the security group for dev database",
+            "Value": {
+                "Ref": "DatabaseSecurityGroup"
+            }
+        },
+        "WebSecurityGroup": {
+            "Description": "A reference to the security group for dev web server",
+            "Value": {
+                "Ref": "WebSecurityGroup"
+            }
+        },
+        "SSHSecurityGroup": {
+            "Description": "A reference to the security group for dev web server",
+            "Value": {
+                "Ref": "SSHSecurityGroup"
             }
         }
     }
