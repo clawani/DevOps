@@ -9,10 +9,13 @@ Resources:
         - sg-036d1fa788e9d58a6
       ImageId: ami-098f16afa9edf40be
       SubnetId: subnet-f19c8d96
+      KeyName: ltsupport
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
           yum update -y
+          yum install httpd -y
+          systemctl enable --now httpd
           useradd admin
           echo "RedHat@1" | passwd admin --stdin
           echo "#granting user admin root privileges" >> /etc/sudoers
