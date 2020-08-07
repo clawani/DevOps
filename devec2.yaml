@@ -6,7 +6,7 @@ Resources:
     Properties:
       InstanceType: t2.micro
       SecurityGroupIds:
-        - sg-0bf15cf1371a8a87e
+        - sg-036d1fa788e9d58a6
       ImageId: ami-098f16afa9edf40be
       SubnetId: subnet-f19c8d96
       UserData:
