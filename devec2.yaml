@@ -6,7 +6,10 @@ Resources:
     Properties:
       InstanceType: t2.micro
       SecurityGroupIds:
-        - sg-036d1fa788e9d58a6
+        - 
+          sg-036d1fa788e9d58a6
+        - 
+          sg-09feb76a01b90918e
       ImageId: ami-098f16afa9edf40be
       SubnetId: subnet-f19c8d96
       KeyName: ltsupport
